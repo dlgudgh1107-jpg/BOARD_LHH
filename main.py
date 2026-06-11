@@ -24,6 +24,14 @@ while True:
                   board[1],
                   board[3],
                   board[4])
+    elif menu == "2":
+        boards = board_dao.register()
+
+        for board in boards:
+            print(board[0],
+                  board[1],
+                  board[2],
+                  board[3])
 
 
 print("게시판 종료")

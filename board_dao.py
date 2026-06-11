@@ -37,10 +37,15 @@ class BoardDAO:
     def register(self):
         conn = self.get_connection()
         cursor = conn.cursor()
+        
+        user_title = input("제목:")
+        user_content = input("내용: ")
+        user_writer = input("작성자: ")
+
 
         sql = """
         INSERT INTO board (title, content, writer)
-        VALUES
+        VALUES(user_title,user_content,user_writer)
         """
 
         cursor.execute(sql)
