@@ -134,6 +134,8 @@ class BoardDAO:
         cursor.close()
         conn.close()
 
+        print("등록 완료.")
+
     def delete_comment(self, board_id,commno):
 
         conn = self.get_connection()
@@ -184,7 +186,7 @@ class BoardDAO:
         cursor.close()
         conn.close()
 
-        print("삭제 완료.")
+        print("수정 완료.")
     
     def comment_one(self, board_id,commno):
         try:
@@ -201,6 +203,7 @@ class BoardDAO:
             result = cursor.fetchone()
             cursor.close()
             conn.close()
+
             return result
                 
         except:
