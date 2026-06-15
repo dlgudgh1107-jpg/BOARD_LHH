@@ -136,7 +136,7 @@ class BoardDAO:
 
         print("등록 완료.")
 
-    def delete_comment(self, board_id,commno):
+    def delete_comment(self, board_id,comm_id):
 
         conn = self.get_connection()
         cursor = conn.cursor()
@@ -144,10 +144,10 @@ class BoardDAO:
         sql = """
         DELETE
         FROM comment
-        WHERE id=%s and commno = %s
+        WHERE id=%s AND commno = %s
         """
 
-        cursor.execute(sql, (board_id,commno))
+        cursor.execute(sql, (board_id,comm_id))
         conn.commit()
         cursor.close()
         conn.close()
@@ -195,7 +195,7 @@ class BoardDAO:
 
             sql = """
             SELECT *
-            FROM board
+            FROM comment
             WHERE id=%s AND commno=%s
             """
 

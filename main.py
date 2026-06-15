@@ -161,7 +161,7 @@ while True:
 
                                                         content = board_dao.comment_one(input_id,delete_no)
 
-                                                        if not content:
+                                                        if content == False:
                                                             continue
 
                                                         else:
