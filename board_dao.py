@@ -170,7 +170,7 @@ class BoardDAO:
         cursor.close()
         conn.close()
 
-    def edit_comment(self,content,board_id,commno):
+    def edit_comment(self,content,board_id,comm_id):
 
         conn = self.get_connection()
         cursor = conn.cursor()
@@ -181,14 +181,14 @@ class BoardDAO:
         WHERE id = %s AND commno = %s
         """
 
-        cursor.execute(sql, (content,board_id,commno))
+        cursor.execute(sql, (content,board_id,comm_id))
         conn.commit()
         cursor.close()
         conn.close()
 
         print("수정 완료.")
     
-    def comment_one(self, board_id,commno):
+    def comment_one(self, board_id,comm_id):
         try:
             conn = self.get_connection()
             cursor = conn.cursor()
@@ -199,7 +199,7 @@ class BoardDAO:
             WHERE id=%s AND commno=%s
             """
 
-            cursor.execute(sql, (board_id,commno))
+            cursor.execute(sql, (board_id,comm_id))
             result = cursor.fetchone()
             cursor.close()
             conn.close()
