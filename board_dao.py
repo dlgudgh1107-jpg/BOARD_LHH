@@ -189,24 +189,19 @@ class BoardDAO:
         print("수정 완료.")
     
     def comment_one(self, board_id,comm_id):
-        try:
-            conn = self.get_connection()
-            cursor = conn.cursor()
+        conn = self.get_connection()
+        cursor = conn.cursor()
 
-            sql = """
-            SELECT *
-            FROM comment
-            WHERE id=%s AND commno=%s
-            """
+        sql = """
+        SELECT *
+        FROM comment
+        WHERE id=%s AND commno=%s
+        """
 
-            cursor.execute(sql, (board_id,comm_id))
-            result = cursor.fetchone()
-            cursor.close()
-            conn.close()
+        cursor.execute(sql, (board_id,comm_id))
+        result = cursor.fetchone()
+        cursor.close()
+        conn.close()
 
-            return result
+        return result
                 
-        except:
-            print("댓글이 존재하지 않습니다. 다시 입력해주세요.")
-            return False
-

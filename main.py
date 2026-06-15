@@ -141,6 +141,7 @@ while True:
                                                         content = board_dao.comment_one(input_id,edit_no)
 
                                                         if not content:
+                                                            print("댓글이 존재하지 않습니다. 다시 입력해주세요.")
                                                             continue
                                                         
                                                         else:
@@ -161,7 +162,8 @@ while True:
 
                                                         content = board_dao.comment_one(input_id,delete_no)
 
-                                                        if content == False:
+                                                        if not content:
+                                                            print("댓글이 존재하지 않습니다. 다시 입력해주세요.")
                                                             continue
 
                                                         else:
